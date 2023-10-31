@@ -1,8 +1,8 @@
-window.onload = function() {
+window.onload = function () {
   // we get the form element
   const form = document.querySelector("form");
   // we create an event handler for the form's submission
-  form.onsubmit = function(event) {
+  form.onsubmit = function (event) {
     event.preventDefault();
 
     // we access two HTML elements, the drink menu and the message to underaged folks,
@@ -14,13 +14,20 @@ window.onload = function() {
     drinkMenu.setAttribute("class", "hidden");
     let under21Message = document.getElementById("under-21");
     under21Message.setAttribute("class", "hidden");
-    
+
     // we gather the age value
     const age = parseInt(document.querySelector("input#age").value);
 
     // we check if the age is greater than 21.
     if (age >= 21) {
       drinkMenu.removeAttribute("class");
-    } 
+    }
+    else if (age === 21) { // new else if statement
+      document.window.alert("Have some fun, you are just 21!");
+      drinkMenu.removeAttribute("class");
+    }
+    else {
+      under21Message.removeAttribute("class");
+    }
   };
 };
